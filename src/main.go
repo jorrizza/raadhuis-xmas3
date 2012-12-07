@@ -1,21 +1,48 @@
 package main
 
 import (
-	"fmt"
-	"net/http"
-	"html"
-	"log"
 	"flag"
+	"fmt"
+	"log"
+	"net"
+	"net/http"
+	"strconv"
 )
 
+var remote string
+
+func parseColor(c string) string {
+	if len(c) > 0 {
+		i, err := strconv.ParseInt(c, 16, 32)
+
+		if err == nil {
+			return fmt.Sprintf("%c%c%c", (i >> 16) & 0xFF, (i >> 8) & 0xFF, i & 0xFF)
+		}
+	}
+
+	return "\xff\x00\x00"
+}
+
+func setColor(w http.ResponseWriter, r *http.Request) {
+	conn, err := net.Dial("tcp", remote)
+
+	if err != nil {
+		log.Printf("could not connect to %s", remote)
+		return
+	}
+
+	fmt.Fprintf(conn, "%s%s", "s", parseColor(r.FormValue("value")))
+	conn.Close()
+}
+
 func main() {
-	var port = flag.Int("p", 4321, "port to listen on")
+	port := flag.Int("p", 4321, "port to listen on")
+	flag.StringVar(&remote, "c", "localhost:9000", "host to connect to")
 
 	flag.Parse()
 
-	http.HandleFunc("/set-color", func(w http.ResponseWriter, r *http.Request) {
-		fmt.Fprintf(w, "Color: #%s", html.EscapeString(r.FormValue("value")))
-	})
+	http.Handle("/", http.FileServer(http.Dir("public")))
+	http.HandleFunc("/set-color", setColor)
 
 	log.Fatal(http.ListenAndServe(fmt.Sprintf(":%d", *port), nil))
 }

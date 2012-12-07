@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <title>Raadhuis Xmas3</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Raadhuis Xmas Tree RGB color picker">
+    <meta name="author" content="Raadhuis United">
+
+    <!-- Le styles -->
+    <link href="css/bootstrap.min.css" rel="stylesheet">
+    <link href="css/farbtastic.css" rel="stylesheet">
+    <link href="css/xmas3.css" rel="stylesheet">
+    <style>
+      body {
+      padding-top: 60px; /* 60px to make the container go all the way to the bottom of the topbar */
+      }
+    </style>
+    <link href="css/bootstrap-responsive.min.css" rel="stylesheet">
+
+    <!-- HTML5 shim, for IE6-8 support of HTML5 elements -->
+    <!--[if lt IE 9]>
+        <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
+        <![endif]-->
+
+    <!-- Fav and touch icons -->
+    <link rel="shortcut icon" href="img/favicon.ico">
+  </head>
+
+  <body>
+
+    <div class="navbar navbar-inverse navbar-fixed-top">
+      <div class="navbar-inner">
+        <div class="container">
+          <a class="brand" href="/">Raadhuis Xmas3</a>
+        </div>
+      </div>
+    </div>
+
+    <div class="container">
+      <div class="row-fluid">
+        <div class="span6" id="color-container">
+          <div id="color" class="well"></div>
+          <button id="set-color" class="btn btn-primary">
+            <i class="icon-ok icon-white"></i> Set color
+          </button>
+        </div>
+        <div class="span6" id="tree-container">
+          <svg id="tree" height="300" width="300" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+            <g transform="scale(1.5)">
+              <image x="0" y="0" height="200" width="200" xlink:href="img/xmas_tree.svg" />
+              <path class="led" style="fill:none; stroke:red; stroke-width:5;" d="M40,100 C60,110 140,90 140,80" />
+              <path class="led" style="fill:none; stroke:red; stroke-width:5;" d="M60,50 C30,60 157,120 157,110" />
+            </g>
+          </svg>
+        </div>
+      </div>
+    </div>
+
+    <!-- Le javascript
+         ================================================== -->
+    <!-- Placed at the end of the document so the pages load faster -->
+    <script src="js/jquery.min.js"></script>
+    <script src="js/bootstrap.min.js"></script>
+    <script src="js/farbtastic.js"></script>
+    <script src="js/xmas3.js"></script>
+  </body>
+</html>
