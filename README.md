@@ -28,7 +28,7 @@ Since we don't lack confidence, there are no tests.
 
 This is the command that fakes the arduino:
 
-    nc -k -l 9000 | ruby -e 'loop { STDIN.read(4).each_byte { |c| printf "%#X ", c.ord }; puts }'
+    nc -k -l 9000 | ruby -e 'loop { printf "%c %#X%X%X\n", *STDIN.read(4).bytes.to_a }'
 
 ***
 
