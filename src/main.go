@@ -11,16 +11,20 @@ import (
 
 var remote string
 
-func parseColor(c string) string {
+func parseColor(c string) []byte {
 	if len(c) > 0 {
 		i, err := strconv.ParseInt(c, 16, 32)
 
 		if err == nil {
-			return fmt.Sprintf("%c%c%c", (i >> 16) & 0xFF, (i >> 8) & 0xFF, i & 0xFF)
+			return []byte{
+				byte((i >> 16) & 0xFF),
+				byte((i >> 8) & 0xFF),
+				byte(i & 0xFF),
+			}
 		}
 	}
 
-	return "\xff\x00\x00"
+	return []byte{0xFF, 0x00, 0x00}
 }
 
 func setColor(w http.ResponseWriter, r *http.Request) {
@@ -31,7 +35,8 @@ func setColor(w http.ResponseWriter, r *http.Request) {
 		return
 	}
 
-	fmt.Fprintf(conn, "%s%s", "s", parseColor(r.FormValue("value")))
+	conn.Write([]byte{0x73})
+	conn.Write(parseColor(r.FormValue("value")))
 	conn.Close()
 }
 
