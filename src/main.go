@@ -27,7 +27,7 @@ func setColor(w http.ResponseWriter, r *http.Request) {
 	conn, err := net.Dial("tcp", remote)
 
 	if err != nil {
-		log.Printf("could not connect to %s", remote)
+		log.Print(err.Error())
 		return
 	}
 
@@ -37,11 +37,12 @@ func setColor(w http.ResponseWriter, r *http.Request) {
 
 func main() {
 	port := flag.Int("p", 4321, "port to listen on")
+	public := flag.String("d", "public", "directory of public files")
 	flag.StringVar(&remote, "c", "localhost:9000", "host to connect to")
 
 	flag.Parse()
 
-	http.Handle("/", http.FileServer(http.Dir("public")))
+	http.Handle("/", http.FileServer(http.Dir(*public)))
 	http.HandleFunc("/set-color", setColor)
 
 	log.Fatal(http.ListenAndServe(fmt.Sprintf(":%d", *port), nil))
