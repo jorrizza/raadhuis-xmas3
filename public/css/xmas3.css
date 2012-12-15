@@ -19,14 +19,14 @@
   background-color: #ff0000;
 }
 .color-2, .color-2:hover {
-  background-color: #ff7700;  
+  background-color: #ff7f00;
 }
 .color-3, .color-3:hover {
   background-color: #ffff00;
 }
 
 .color-4, .color-4:hover {
-  background-color: #77ff00;
+  background-color: #7fff00;
 }
 
 .color-5, .color-5:hover {
@@ -34,7 +34,7 @@
 }
 
 .color-6, .color-6:hover {
-  background-color: #00ff77;
+  background-color: #00ff7f;
 }
 
 .color-7, .color-7:hover {
@@ -42,7 +42,7 @@
 }
 
 .color-8, .color-8:hover {
-  background-color: #0077ff;
+  background-color: #007fff;
 }
 
 .color-9, .color-9:hover {
@@ -50,7 +50,7 @@
 }
 
 .color-10, .color-10:hover {
-  background-color: #7700ff;
+  background-color: #7f00ff;
 }
 
 .color-11, .color-11:hover {
@@ -58,5 +58,5 @@
 }
 
 .color-12, .color-12:hover {
-  background-color: #ff0077;
+  background-color: #ff007f;
 }
