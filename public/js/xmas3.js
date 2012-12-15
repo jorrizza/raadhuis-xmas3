@@ -9,7 +9,7 @@ function color_poller () {
     }
   );
 
-  setTimeout(color_poller, 500);
+  setTimeout('color_poller()', 500);
 }
 
 $(function () {
