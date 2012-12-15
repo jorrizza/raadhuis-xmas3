@@ -2,7 +2,6 @@ package main
 
 import (
 	"flag"
-	"fmt"
 	"log"
 	"net"
 	"net/http"
@@ -34,12 +33,13 @@ func setColor(color []byte) {
 
 	if err != nil {
 		log.Print(err.Error())
-	} else {
-		conn.Write([]byte{0x73})
-		conn.Write(color)
-		conn.Write([]byte{0x00})
-		conn.Close()
+		return
 	}
+
+	conn.Write([]byte{0x73})
+	conn.Write(color)
+	conn.Write([]byte{0x00})
+	conn.Close()
 }
 
 func queueColor(w http.ResponseWriter, r *http.Request) {
@@ -59,7 +59,7 @@ func queue() {
 func main() {
 	q = make(chan []byte)
 
-	port := flag.Int("p", 4321, "port to listen on")
+	port := flag.String("p", "localhost:4321", "socket to listen on")
 	public := flag.String("d", "public", "directory of public files")
 	flag.StringVar(&remote, "c", "localhost:9000", "host to connect to")
 
@@ -70,5 +70,5 @@ func main() {
 
 	go queue()
 
-	log.Fatal(http.ListenAndServe(fmt.Sprintf(":%d", *port), nil))
+	log.Fatal(http.ListenAndServe(*port, nil))
 }
