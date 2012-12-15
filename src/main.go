@@ -50,9 +50,9 @@ func queue() {
 	for {
 		newColor := <-q
 
-		time.Sleep(500 * time.Millisecond)
-
 		setColor(newColor)
+
+		time.Sleep(500 * time.Millisecond)
 	}
 }
 
