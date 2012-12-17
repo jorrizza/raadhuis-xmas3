@@ -15,6 +15,11 @@
   margin: 16px;
 }
 
+#twitter-thingie {
+  margin-top: 40px;
+  clear: left;
+}
+
 .color-1, .color-1:hover {
   background-color: #ff0000;
 }
@@ -58,5 +63,5 @@
 }
 
 .color-12, .color-12:hover {
-  background-color: #ff007f;
+  background-color: #d5027d;
 }
