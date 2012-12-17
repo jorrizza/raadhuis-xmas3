@@ -27,13 +27,17 @@
   </head>
 
   <body>
-    <a href="https://github.com/raadhuis-united"><img style="position: absolute; top: 41px; right: 0; border: 0;" src="https://s3.amazonaws.com/github/ribbons/forkme_right_red_aa0000.png" alt="Fork me on GitHub"></a>
-
     <div class="navbar navbar-inverse navbar-fixed-top">
       <div class="navbar-inner">
         <div class="container">
           <a class="brand" href="/">Raadhuis Xmas3</a>
           <div class="pull-right">
+            <a class="btn btn-inverse" href="https://github.com/raadhuis-united/raadhuis-xmas3">
+              <i class="icon-wrench icon-white"></i> Github
+            </a>
+            <button class="btn btn-inverse" data-toggle="modal" data-target="#twitter-modal">
+              <i class="icon-comment icon-white"></i> Twitter
+            </button>
             <button class="btn btn-inverse" data-toggle="modal" data-target="#help-modal">
               <i class="icon-question-sign icon-white"></i> Help
             </button>
@@ -50,11 +54,27 @@
       <div class="modal-body">
         <p>
           Op het bordes van het Raadhuis, op de heuvel in Lieshout, staat een
-          kerstboom. Met de knoppen op deze site kun je de kleur van de 
-          kerstlichtjes veranderen. Als je nou niet in Lieshout bent kun je aan 
-          de boom hieronder zien welke kleur de lichtjes op dit moment hebben.
+          kerstboom. Met de knoppen op deze site kun je de kleur van de
+          kerstlichtjes veranderen. Als je nou niet in Lieshout bent kun je aan
+          de het plaatje van de boom zien welke kleur de lichtjes op dit moment
+          hebben.
         </p>
         <p>Raadhuis United.</p>
+      </div>
+      <div class="modal-footer">
+        <button class="btn" data-dismiss="modal" aria-hidden="true">Ok</button>
+      </div>
+    </div>
+
+    <div id="twitter-modal" class="modal hide fade" tabindex="-1" role="dialog" aria-labelledby="modal-label" aria-hidden="true">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+        <h3 id="modal-label">Twitter</h3>
+      </div>
+      <div class="modal-body">
+        <a class="twitter-timeline" href="https://twitter.com/search?q=%23xmas3_lieshout" data-widget-id="280595932054175744">
+          Tweets about "#xmas3_lieshout"
+        </a>
       </div>
       <div class="modal-footer">
         <button class="btn" data-dismiss="modal" aria-hidden="true">Ok</button>
@@ -65,7 +85,7 @@
       <div class="row-fluid">
         <div class="span6" id="color-container">
           <button class="color-1 btn btn-primary">
-            <img src="img/vv.png">
+            <img src="img/vv.png" alt="ViaViela">
           </button>
           <button class="color-2 btn btn-primary"></button>
           <button class="color-3 btn btn-primary"></button>
@@ -76,10 +96,10 @@
           <button class="color-8 btn btn-primary"></button>
           <button class="color-9 btn btn-primary"></button>
           <button class="color-10 btn btn-primary"></button>
-          <button class="color-11 btn btn-primary"></button>
-          <button class="color-12 btn btn-primary">
-            <img src="img/mk.png">
+          <button class="color-11 btn btn-primary">
+            <img src="img/mk.png" alt="Mediaklapper">
           </button>
+          <button class="color-12 btn btn-primary"></button>
         </div>
         <div class="span6" id="tree-container">
           <svg id="tree" height="300" width="300" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
@@ -89,9 +109,6 @@
               <path class="led" style="fill:none; stroke:red; stroke-width:5;" d="M70,48 C30,60 157,120 157,110" />
             </g>
           </svg>
-        </div>
-        <div class="span6" id="twitter-thingie">
-          <a class="twitter-timeline"  href="https://twitter.com/search?q=%23xmas3_lieshout" data-widget-id="280595932054175744">Tweets about "#xmas3_lieshout"</a>
         </div>
       </div>
     </div>

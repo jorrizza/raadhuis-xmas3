@@ -22,10 +22,14 @@ func parseColor(c string) []byte {
 		i, err := strconv.ParseInt(c, 16, 32)
 
 		if err == nil {
-			return []byte{
+			parsedColor := []byte{
 				byte((i >> 16) & 0xFF),
 				byte((i >> 8) & 0xFF),
 				byte(i & 0xFF),
+			}
+
+			if int(parsedColor[0])+int(parsedColor[1])+int(parsedColor[2]) >= 255 {
+				return parsedColor
 			}
 		}
 	}

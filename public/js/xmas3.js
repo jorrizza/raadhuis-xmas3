@@ -27,6 +27,15 @@ $(function () {
         );
       }
     );
+
+    $('#color-container button').hover(
+      function () {
+        $(this).find('img').show();
+      },
+      function () {
+        $(this).find('img').hide();
+      }
+    );
   }
 );
 
